@@ -5,7 +5,7 @@ const users = require('../Model/userSchema')
 const jwt = require('jsonwebtoken')
 
 
-console.log('inside the controller - register function');
+console.log('inside the controller ');
 
 
 exports.register = async(req,res)=>{

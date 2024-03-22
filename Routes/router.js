@@ -18,10 +18,10 @@ router.post('/owner/register',userController.register)
 
 router.post('/owner/login',userController.login)
 
-router.put('/user/password',userController.userPassword)
+router.put('/user/password',jwtMiddleware,userController.userPassword)
 
-router.post('/register/add',multerConfig.array('vattacthment'),formController.registervech)
+router.post('/register/add',jwtMiddleware,multerConfig.array('vattacthment'),formController.registervech)
 
-
+router.get('/register/details',jwtMiddleware,formController.getallDetails)
 
 module.exports = router

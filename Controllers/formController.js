@@ -4,7 +4,7 @@ const forms = require('../Model/formSchema')
 const jwt = require('jsonwebtoken')
 
 
-console.log('inside the controller - register function');
+console.log('inside the controller ');
 
 
 exports.registervech =async(req,res)=>{
@@ -33,8 +33,6 @@ exports.registervech =async(req,res)=>{
 
     console.log(`${vname},${vemail},${vpsd},${vyear},${vyear},${vnumber},${vtype},${vitems},${vmsg},${vdefects}`);
 
-    
-
     try{
         const newRegister = new forms({
             vname,
@@ -57,3 +55,13 @@ exports.registervech =async(req,res)=>{
     }
 
     }
+
+    exports.getallDetails = async(req,res)=>{
+    
+        try{
+         const VehicleDetails = await forms.find()
+         res.status(200).json(VehicleDetails)
+        }catch(err){
+            res.status(401).json(`Request failed due to ${err}`)
+        }
+        }
